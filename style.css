@@ -1,0 +1,18 @@
+.img-container {
+    height: 250px;
+}
+
+.img-container img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.single-card {
+    width: calc(100% / 3 - 2rem);
+    margin: 1rem;
+}
+
+p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}

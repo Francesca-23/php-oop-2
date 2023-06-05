@@ -12,7 +12,4 @@ class Cibo extends Prodotti{
     }
 }
 
-$crocchette = new Cibo( new Categoria(1, 'cane'), 'crocchette', '20euro', 'laalallala', 'img', '20kcal');
-var_dump($crocchette);
-
 ?>
