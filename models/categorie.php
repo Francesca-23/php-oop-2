@@ -1,11 +1,9 @@
 <?php 
 
 class Categoria{
-    public $code;
     public $name;
 
-    function __construct($_code, $_name){
-        $this->code = $_code;
+    function __construct($_name){
         $this->name = $_name;
     }
 }

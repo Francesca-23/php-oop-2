@@ -17,7 +17,7 @@ include_once __DIR__ . '/database/db.php';
 <body>
 
     <div class="container w-75">
-        <h1 class="text-center">Pet Store</h1>
+        <h1 class="text-center pt-3">Pet Store</h1>
 
         <div class="row">
 
@@ -35,6 +35,58 @@ include_once __DIR__ . '/database/db.php';
                             echo 'CANI: CUCCE';
                         }elseif($elem == $prodottiCani['abbigliamento']){
                             echo 'CANI: ABBIGLIAMENTO';
+                        }
+                    ?> 
+                </h3>
+
+                <?php foreach($elem as $elemento){ ?>
+
+                    <div class="card single-card" >
+                        <div class="img-container">
+                            <img src=" <?php echo $elemento->immagine ?> " class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"> <?php echo $elemento->nome ?> </h5>
+                            <p><strong>Prezzo: </strong> <?php echo $elemento->prezzo ?> </p>
+                            <p class="card-text">
+                                <?php 
+                                    if(isset($elemento->calorie)){
+                                        echo '<strong>Calorie: </strong>' . $elemento->calorie;
+                                    }elseif(isset($elemento->materiale)){
+                                        echo '<strong>Materiale: </strong>' . $elemento->materiale;
+                                    }elseif(isset($elemento->dimensioni)){
+                                        echo '<strong>Dimensioni: </strong>' . $elemento->dimensioni;
+                                    }elseif(isset($elemento->taglia)){
+                                        echo '<strong>Taglia: </strong>' . $elemento->taglia;
+                                    }
+                                ?>
+                            </p>
+                            <p><strong>Descrizione: </strong> <?php echo $elemento->descrizione ?> </p>
+                            <p><strong>Categoria prodotto: </strong><?php echo $elemento->categoria->name ?> </p>
+                        </div>
+                    </div>
+
+                <?php } ?>
+            <?php } ?>
+
+        </div>
+
+        <div class="row">
+
+        <!-- cards prodotti per gatti -->
+
+            <?php foreach($prodottiGatti as $elem){ ?>
+
+                <h3 class="mx-3 mt-3"> 
+                    <?php 
+                        if($elem == $prodottiGatti['cibo']){
+                            echo 'GATTI: CIBO';
+                        }elseif($elem == $prodottiGatti['giochi']){
+                            echo 'GATTI: GIOCHI';
+                        }elseif($elem == $prodottiGatti['cucce']){
+                            echo 'GATTI: CUCCE';
+                        }elseif($elem == $prodottiGatti['abbigliamento']){
+                            echo 'GATTI: ABBIGLIAMENTO';
                         }
                     ?> 
                 </h3>
