@@ -16,3 +16,13 @@ p {
     margin-bottom: 5px;
     font-size: 0.9rem;
 }
+
+.disponibile {
+    color: limegreen;
+    font-weight: bold;
+}
+
+.esaurito {
+    color: red;
+    font-weight: bold;
+}

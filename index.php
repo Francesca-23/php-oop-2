@@ -2,6 +2,14 @@
 
 include_once __DIR__ . '/database/db.php';
 
+function disponibilita($disp){
+    if($disp == false){
+        throw new Exception('Esaurito');
+    }elseif($disp == true){
+        return 'Disponibile';
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +71,13 @@ include_once __DIR__ . '/database/db.php';
                             </p>
                             <p><strong>Descrizione: </strong> <?php echo $elemento->descrizione ?> </p>
                             <p><strong>Categoria prodotto: </strong><?php echo $elemento->categoria->name ?> </p>
+                            <p> <?php 
+                                try{
+                                    echo '<span class="disponibile">' . disponibilita($elemento->disponibile) . '</span>';
+                                }catch(Exception $e){
+                                    echo '<span class="esaurito">' . $e->getMessage() . '</span>';
+                                }
+                             ?> </p>
                         </div>
                     </div>
 
@@ -115,6 +130,13 @@ include_once __DIR__ . '/database/db.php';
                             </p>
                             <p><strong>Descrizione: </strong> <?php echo $elemento->descrizione ?> </p>
                             <p><strong>Categoria prodotto: </strong><?php echo $elemento->categoria->name ?> </p>
+                            <p> <?php 
+                                try{
+                                    echo '<span class="disponibile">' . disponibilita($elemento->disponibile) . '</span>';
+                                }catch(Exception $e){
+                                    echo '<span class="esaurito">' . $e->getMessage() . '</span>';
+                                }
+                             ?> </p>
                         </div>
                     </div>
 
