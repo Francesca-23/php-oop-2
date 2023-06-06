@@ -1,3 +1,7 @@
+.bg-personal {
+    background-color: lightgreen;
+}
+
 .img-container {
     height: 250px;
 }
@@ -25,4 +29,8 @@ p {
 .esaurito {
     color: red;
     font-weight: bold;
+}
+
+.text-color {
+    color: deeppink;
 }

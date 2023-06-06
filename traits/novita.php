@@ -8,7 +8,7 @@ trait Novita{
     }
 
     public function setNovita(){
-        return $this->novita = 'Nuovo arrivo!' . date('Y-m-a');
+        return $this->novita = 'Nuovo arrivo!' . ' ' . date('Y-m-d');
     }
     
 }

@@ -24,8 +24,8 @@ function disponibilita($disp){
 </head>
 <body>
 
-    <div class="container w-75">
-        <h1 class="text-center pt-3">Pet Store</h1>
+    <div class="container w-75 bg-personal px-5 py-2 my-3 rounded-4">
+        <h1 class="text-center pt-2 text-white">Pet Store</h1>
 
         <div class="row">
 
@@ -33,7 +33,7 @@ function disponibilita($disp){
 
             <?php foreach($prodottiCani as $elem){ ?>
 
-                <h3 class="mx-3 mt-3"> 
+                <h3 class="mx-3 mt-3 text-white"> 
                     <?php 
                         if($elem == $prodottiCani['cibo']){
                             echo 'CANI: CIBO';
@@ -49,7 +49,7 @@ function disponibilita($disp){
 
                 <?php foreach($elem as $elemento){ ?>
 
-                    <div class="card single-card" >
+                    <div class="card single-card pt-2" >
                         <div class="img-container">
                             <img src=" <?php echo $elemento->immagine ?> " class="card-img-top" alt="...">
                         </div>
@@ -71,13 +71,21 @@ function disponibilita($disp){
                             </p>
                             <p><strong>Descrizione: </strong> <?php echo $elemento->descrizione ?> </p>
                             <p><strong>Categoria prodotto: </strong><?php echo $elemento->categoria->name ?> </p>
-                            <p> <?php 
+                            <p  class="mt-3"> 
+                                <?php 
+                                    if($elem == $prodottiCani['cibo']){
+                                        echo '<span class="text-color">'. $elemento->setNovita() . '</span>'; 
+                                    }
+                                ?> 
+                             </p>
+                            <p class="mt-2"> <?php 
                                 try{
                                     echo '<span class="disponibile">' . disponibilita($elemento->disponibile) . '</span>';
                                 }catch(Exception $e){
                                     echo '<span class="esaurito">' . $e->getMessage() . '</span>';
                                 }
                              ?> </p>
+                            
                         </div>
                     </div>
 
@@ -92,7 +100,7 @@ function disponibilita($disp){
 
             <?php foreach($prodottiGatti as $elem){ ?>
 
-                <h3 class="mx-3 mt-3"> 
+                <h3 class="mx-3 mt-3 text-white"> 
                     <?php 
                         if($elem == $prodottiGatti['cibo']){
                             echo 'GATTI: CIBO';
@@ -108,7 +116,7 @@ function disponibilita($disp){
 
                 <?php foreach($elem as $elemento){ ?>
 
-                    <div class="card single-card" >
+                    <div class="card single-card pt-2" >
                         <div class="img-container">
                             <img src=" <?php echo $elemento->immagine ?> " class="card-img-top" alt="...">
                         </div>
@@ -130,7 +138,14 @@ function disponibilita($disp){
                             </p>
                             <p><strong>Descrizione: </strong> <?php echo $elemento->descrizione ?> </p>
                             <p><strong>Categoria prodotto: </strong><?php echo $elemento->categoria->name ?> </p>
-                            <p> <?php 
+                            <p class="mt-3"> 
+                                <?php 
+                                    if($elem == $prodottiGatti['cucce']){
+                                        echo '<span class="text-color">'. $elemento->setNovita() . '</span>';  
+                                    }
+                                ?> 
+                             </p>
+                            <p class="mt-2"> <?php 
                                 try{
                                     echo '<span class="disponibile">' . disponibilita($elemento->disponibile) . '</span>';
                                 }catch(Exception $e){
